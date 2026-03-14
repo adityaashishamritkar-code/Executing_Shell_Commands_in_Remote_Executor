@@ -31,7 +31,6 @@ class JobManagerService(private val repository: JobRepository) {
                 "--memory", job.memoryLimit, "alpine", "sh", "-c", job.script
             ).redirectErrorStream(true).start()
 
-            // Timeout nuance: Wait 30 seconds max
             val finished = process.waitFor(30, TimeUnit.SECONDS)
 
             if (finished) {

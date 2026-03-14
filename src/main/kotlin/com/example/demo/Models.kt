@@ -13,7 +13,7 @@ enum class Status { QUEUED, IN_PROGRESS, FINISHED, FAILED, TIMEOUT }
 
 @Entity
 data class JobRecord(
-    @Id val id: String = java.util.UUID.randomUUID().toString(),
+    @Id val id: String = UUID.randomUUID().toString(),
     val script: String = "",
     val cpuLimit: Double = 1.0,
     val memoryLimit: String = "512m",
